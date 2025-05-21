@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="/static/CSS/user.css" rel="stylesheet">
+    <title>Thông Tin Sensor Nodes</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <a href="{{ url_for('logout') }}" class="btn btn-danger mb-3">Đăng xuất</a>
+        <h1 class="text-center">Thông Tin Các Nodes</h1>
+        <form action="" method="post">
+            <div class="row">
+                {% for node in sensor_nodes %}
+                <div class="col-md-6 mb-4">
+                    <div class="node-card p-3 border rounded">
+                        <h4 class="text-center">Node ID: {{ node[0] }}</h4>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="mb-1">Nhiệt Độ: {{ node[2] }} °C</p>
+                                <p class="mb-1">Độ Ẩm: {{ node[3] }} %</p>
+                            </div>
+                            <div class="control-buttons">
+
+                                <button type="submit" name="fan_control" value="{{ node[0] }}" class="btn-control">
+                                    {% if node[4] == 1 %}
+                                        <img src="/static/CSS/icons/fan_on.png" class="status-icon" alt="Quạt đang quay">
+                                    {% else %}
+                                        <img src="/static/CSS/icons/fan_off.png" class="status-icon" alt="Quạt tắt">
+                                    {% endif %}
+                                </button>
+                                
+                                <button type="submit" name="light_control" value="{{ node[0] }}" class="btn-control">
+                                    {% if node[5] == 1 %}
+                                        <img src="/static/CSS/icons/light_on.png" class="status-icon" alt="Đèn bật">
+                                    {% else %}
+                                        <img src="/static/CSS/icons/light_off.png" class="status-icon" alt="Đèn tắt">
+                                    {% endif %}
+                                </button>
+
+                                <button type="submit" name="motor_control" value="{{ node[0] }}" class="btn-control">
+                                    {% if node[6] == 1 %}
+                                        <img src="/static/CSS/icons/motor_on.png" class="status-icon" alt="Động cơ chạy">
+                                    {% else %}
+                                        <img src="/static/CSS/icons/motor_off.png" class="status-icon" alt="Động cơ dừng">
+                                    {% endif %}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <div class="auto-control">
+                                <button type="submit" name="auto_control" value="{{ node[0] }}" 
+                                        class="btn {% if node[9] == 1 %}btn-success{% else %}btn-secondary{% endif %} w-100">
+                                    {% if node[9] == 1 %}
+                                        Chế độ tự động: BẬT
+                                    {% else %}
+                                        Chế độ tự động: TẮT
+                                    {% endif %}
+                                </button>    
+                            </div>
+                        
+                            <form method="POST" action="{{ url_for('user_dashboard') }}">
+                                <div class="input-group mt-2">
+                                    <span class="input-group-text">Nhiệt độ cài đặt</span>
+                                    <input type="number" class="form-control" name="Set_temp_{{ node[0] }}" 
+                                           value="{{ node[7] }}" step="0.1" min="0" max="50" required>
+                                    <span class="input-group-text">°C</span>
+                                </div>
+                        
+                                <div class="input-group mt-2">
+                                    <span class="input-group-text">Độ ẩm cài đặt</span>
+                                    <input type="number" class="form-control" name="Set_hum_{{ node[0] }}" 
+                                           value="{{ node[8] }}" step="1" min="0" max="100" required>
+                                    <span class="input-group-text">%</span>
+                                </div>
+                        
+                                <button type="submit" name="set_control" value="{{ node[0] }}" class="btn btn-primary w-100 mt-3">
+                                    Cập nhật cài đặt
+                                </button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+</body>
+</html>

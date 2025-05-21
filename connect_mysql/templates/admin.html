@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="/static/CSS/admin.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('logout') }}" class="btn btn-danger logout-link">Đăng xuất</a>
+        <h1 class="text-center mt-5">Admin Dashboard</h1>
+        <div class="form-container">
+            <h2 class="form-header">Thêm Sản Phẩm</h2>
+
+            {% if success_message %}
+            <div class="alert alert-success text-center">
+                {{ success_message }}
+            </div>
+            {% endif %}
+            <form action="" method="post">
+                <div class="mb-3 input-field">
+                    <label for="SL" class="form-label">Số lượng sản phẩm</label>
+                    <input type="number" class="form-control" id="SL" name="SL" placeholder="Nhập số lượng sản phẩm" required>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-custom" value="Thêm">
+                </div>
+            </form>
+            <div class="id-list">
+                <h2 class="text-center">Danh sách ID_SP đã tạo:</h2>
+                <ul class="list-group list-group-flush mb-4">
+                    {% for id_sp in id_sp_list %}
+                        <li class="list-group-item text-center d-flex justify-content-between align-items-center">
+                            {{ id_sp }}
+                            <form method="POST" style="display:inline;">
+                                <input type="hidden" name="delete_id_sp" value="{{ id_sp }}">
+                                <button type="submit" class="btn btn-link text-danger" title="Xóa">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>            
+        </div>
+        <link rel="stylesheet" href="/static/CSS/register.css">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

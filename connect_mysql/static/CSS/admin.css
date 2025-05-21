@@ -1,0 +1,152 @@
+/* Cấu hình body với nền và font chữ */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/CSS/icons/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7f50;
+}
+
+.navbar .logo img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+    color: #ff7f50;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.form-header {
+    text-align: center;
+    color: #ff7f50;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field control {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgba(255, 127, 80, 0.3);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff; /* Màu chữ cho trường nhập liệu */
+    transition: all 0.3s ease;
+}
+
+.input-field input:focus {
+    border-color: #ff7f50;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.btn-custom {
+    background-color: #ff7f50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-weight: bold;
+}
+
+.btn-custom:hover {
+    background-color: #e06b40;
+}
+.btn-link {
+    font-size: 18px; 
+    text-decoration: none; 
+    padding: 0;
+    cursor: pointer; 
+}
+
+.btn-link.text-danger {
+    background-color: #e06b40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 127, 80, 0.3);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.btn-link.text-danger:hover {
+    background-color: #e06b40;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 127, 80, 0.3);
+}
+.id-list {
+    margin-top: 30px;
+    text-align: center;
+    color: #00f140;
+}
+
+.id-list .list-group-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ff0707;
+    border: 1px solid #ff7f50;
+    margin-bottom: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.id-list .list-group-item:hover {
+    background-color: rgba(3, 0, 0, 0.2);
+    transform: translateX(5px);
+}

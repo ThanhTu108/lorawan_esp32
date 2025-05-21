@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../connect_mysql"
+		},
+		{
+			"name": "master",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

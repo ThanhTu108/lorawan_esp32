@@ -1,0 +1,22 @@
+tạo database
+D:\APP\xampp\mysql\bin>mysql.exe -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 354
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
+MariaDB [(none)]> USE da2;
+
+MariaDB [da2]> CREATE TABLE users (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     username VARCHAR(50) NOT NULL UNIQUE,
+    ->     password VARCHAR(255) NOT NULL,
+    ->     role INT DEFAULT 0
+    -> );
+Query OK, 0 rows affected (0.030 sec)

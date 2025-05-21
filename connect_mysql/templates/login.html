@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ án 2</title>
+    <link rel="stylesheet" href="/static/CSS/login.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="/static/CSS/icons/logo.jpg" alt="Logo HCMUTE" class="logo-image">
+        </div>        
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('about')">About</a></li>
+            <li><a href="#" onclick="showSection('services')">Services</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="text">
+            <h1>Chào mừng đến với <span>PROJECT</span></h1>
+        </div>
+        <div class="form-container">
+            <h2 class="form-header">Đăng Nhập</h2>
+            <form action="" method="post">
+                <div class="mb-3 input-field">
+                    <label for="uname" class="form-label">Tên người dùng</label>
+                    <input type="text" class="form-control" id="uname" name="uname" placeholder="Nhập tên người dùng" required>
+                </div>
+                <div class="mb-3 input-field">
+                    <label for="passw" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" id="passw" name="passw" placeholder="Nhập mật khẩu" required>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-custom" value="Đăng Nhập">
+                </div>
+            </form>
+            {% if request.args.get('error') %}
+            <p style="color: red;">{{ request.args.get('error') }}</p>
+            {% endif %}
+            <div class="register-link">
+                <span>Chưa có tài khoản?</span>
+                <a href="{{ url_for('register') }}">Đăng ký</a>
+            </div>                
+        </div>
+        
+    </div>
+    <div id="home" class="home-section active">
+        <h2>Chào mừng đến với LORA</h2>
+        <img src="/static/CSS/icons/SDK.png" alt="LORA Image" style="width:100%; max-width:500px; border-radius: 30px;">
+        <p>Để hiểu thêm về dịch vụ chúng tôi cung cấp, một sơ đồ giúp mọi người hiểu thêm về thiết bị. Người dùng chỉ cần tương tác trên web và hệ thống sẽ thay thế các công việc nặng nhọc mà không cần phải thực hiện trực tiếp.</p>
+        <p>Chúng tôi cung cấp các dịch vụ IoT, giúp bạn theo dõi và quản lý các thiết bị thông minh trong cuộc sống hàng ngày.</p>
+        
+        <h3>Dịch vụ của chúng tôi:</h3>
+        <ul>
+            <li>Giám sát nhiệt độ và độ ẩm</li>
+            <li>Điều khiển thiết bị từ xa</li>
+            <li>Giải pháp IoT tùy chỉnh</li>
+        </ul>
+        
+        <p>Đăng nhập để bắt đầu trải nghiệm và tận dụng các tính năng của chúng tôi.</p>
+        <div class="text-center">
+            <button onclick="window.location.href='{{url_for('register')}}'">Đăng kí</button>
+        </div>
+    </div>
+    
+    <div id="about" class="about-section">
+        <h2>Về Hệ Thống LoRaWAN</h2>
+        <p><strong>Tác giả:</strong> Trần Lê Thanh Tú</p>
+        <p><strong>MSSV:</strong> 21161421</p>
+        <p>
+            Hệ thống LoRaWAN này được thiết kế để hỗ trợ người dùng theo dõi và giám sát nhiệt độ, độ ẩm từ xa trên nhiều địa điểm khác nhau. Với công nghệ truyền dữ liệu LoRa, khoảng cách truyền nhận có thể lên đến <strong>15 km</strong>, giúp tối ưu hóa khả năng kiểm soát từ xa.
+        </p>
+        <p>
+            Hệ thống mang lại lợi ích trong việc giám sát môi trường trong các khu vực rộng lớn, như nông trại, nhà máy, hoặc các trung tâm công nghiệp, nơi mà kết nối mạng truyền thống khó hoặc không thể thực hiện được.
+        </p>
+        <p>
+            LoRa cũng hỗ trợ các tính năng điều khiển các thiết bị từ xa, giúp ích cho người sử dụng trong việc quản lý hệ thống.
+        </p>
+        <p>
+            Người dùng có thể dễ dàng đăng ký tài khoản và sử dụng thiết bị của mình thông qua mã ID thiết bị được cung cấp. Hệ thống cho phép người dùng kiểm tra trạng thái của thiết bị và điều khiển chúng chỉ với vài thao tác đơn giản, tạo sự thuận tiện và hiệu quả cao trong việc quản lý các thiết bị từ xa.
+        </p>
+    </div> 
+    <div id="services" class="services-section">
+        <h2>Dịch Vụ Của Chúng Tôi</h2>
+        <ul>
+            <li>Giám sát và phân tích dữ liệu cảm biến</li>
+            <li>Giải pháp tự động hóa cho nhà thông minh</li>
+            <li>Hỗ trợ kỹ thuật 24/7</li>
+            <li>Cung cấp thiết bị IoT chất lượng cao</li>
+        </ul>
+    </div>
+    
+    <!-- Phần Contact -->
+    <div id="contact" class="contact-section">
+        <h2>Liên Hệ Với Chúng Tôi</h2>
+        <p>Nếu bạn có bất kỳ câu hỏi nào hoặc muốn tìm hiểu thêm về dự án, hãy liên hệ qua các kênh dưới đây:</p>
+        <ul>
+            <li>Email: thanhtu10803@gmail.com</li>
+            <li>Điện thoại: +84 343665780</li>
+            <li>Đại học Sư phạm Kỹ thuật TP.HCM</li>
+        </ul>
+        <div class="social-menu">
+            <ul>
+                <li><a href="https://github.com/ThanhTu108" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.facebook.com/thanhtu10803/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/ttus8_/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(section) {
+            const sections = document.querySelectorAll('.home-section, .about-section, .services-section, .contact-section');
+            sections.forEach(s => s.classList.remove('active'));
+            document.getElementById(section).classList.add('active');
+
+            // Cuộn mượt mà đến phần được chọn
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('/static/CSS/icons/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.btn-danger {
+    background-color: #ff7f50;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #ff6b3d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 127, 80, 0.3);
+}
+
+.node-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 15px !important;
+    border: 1px solid rgba(255, 127, 80, 0.3) !important;
+    padding: 25px !important; 
+    margin: 15px 0;
+}
+
+.node-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 127, 80, 0.2);
+    border: 1px solid rgba(255, 127, 80, 0.5) !important;
+}
+
+.node-card h4 {
+    color: #ff7f50;
+    font-size: 1.5rem; 
+    font-weight: bold;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 127, 80, 0.3);
+}
+
+
+.node-card p {
+    color: #fff;
+    font-size: 1.2rem;  
+    margin-bottom: 12px !important;
+    font-weight: 500;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 25px; 
+    align-items: center;
+}
+
+.btn-control {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 127, 80, 0.3);
+    padding: 15px;  /* Tăng padding cho nút */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    min-width: 60px; 
+    min-height: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-control:hover {
+    background-color: rgba(255, 127, 80, 0.2);
+    transform: scale(1.1);
+    border-color: rgba(255, 127, 80, 0.6);
+}
+
+.btn-control:active {
+    transform: scale(0.95);
+}
+
+
+.status-icon {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(91%) saturate(5146%) hue-rotate(298deg) brightness(101%) contrast(101%);
+    transition: all 0.3s ease;
+}
+
+.btn-control[name="fan_control"] .status-icon {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(51%) saturate(845%) hue-rotate(157deg) brightness(99%) contrast(92%);
+}
+
+.btn-control[name="light_control"] .status-icon {
+    filter: brightness(0) saturate(100%) invert(91%) sepia(61%) saturate(7500%) hue-rotate(359deg) brightness(103%) contrast(94%);
+}
+
+.btn-control[name="motor_control"] .status-icon {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(11%) saturate(6042%) hue-rotate(89deg) brightness(99%) contrast(84%);
+}
